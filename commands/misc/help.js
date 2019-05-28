@@ -5,8 +5,8 @@ const { cyan } = require('../../colors.json')
 module.exports = {
   config: {
     name: 'help',
-    description: '',
-    usage: '!usage',
+    description: 'Use !help to request a list of commands or !help <command> to get information on each command.',
+    usage: '!help or !help <command>',
     category: 'misc',
     authorized: "Members",
     aliases: ['h', 'commands'],

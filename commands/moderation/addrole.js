@@ -5,7 +5,7 @@ module.exports = {
   config: {
     name: 'addrole',
     description: 'Add a role to a user in the discord server',
-    usage: '!addrole',
+    usage: '!addrole <@user> <reason>',
     authorized: 'Moderators',
     category: 'moderation',
     aliases: ['ar', 'roleadd'],

@@ -22,7 +22,8 @@ module.exports = {
     if (!removeroleUser) return message.channel.send(`You need to tell me who to remove a role from!`)
 
     let reason = args.slice(2).join(" ")
-    if (!reason) return message.guild.send('Error! No reason given. Please provide one.')
+    if (!reason) return message.channel.send('Error! No reason given. Please provide one.')
+
 
     // Find mute role if it exists and return a message if it doesn't exist
     let removerole = message.guild.roles.find(f => f.name == args[1] || message.guild.roles.find(f => f.id == args[1]) || message.mentions.roles.first())
