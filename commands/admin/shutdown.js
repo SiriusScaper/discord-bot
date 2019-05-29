@@ -1,5 +1,3 @@
-const { RichEmbed } = require('discord.js')
-const { light_red } = require('../../colors.json')
 
 module.exports = {
   config: {
