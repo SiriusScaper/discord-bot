@@ -12,6 +12,8 @@ module.exports = {
     aliases: ["si", "server", "sinfo"]
   },
   run: async (bot, message, args) => {
+
+    // Send a rich embed with information regarding the discord such as the name, member count and owner
     const { iconURL, name, owner, memberCount, roles } = message.guild
     const sEmbed = new RichEmbed()
       .setColor(Cyan)

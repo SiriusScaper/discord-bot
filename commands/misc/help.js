@@ -16,6 +16,7 @@ module.exports = {
     let cmdtypes = ["moderation", "misc"]
     let embed = new RichEmbed()
 
+    // Check for required prefix and command name then compare what is given to a list of commands by the category/folder and command files
     if (!args[0]) {
       for (let i = 0; i < cmdtypes.length; i++) {
         arr.push(bot.commands.filter(c => c.config.category == cmdtypes[i].toLowerCase()).map(c => `\`${c.config.name}\``).join(" "))
@@ -25,7 +26,7 @@ module.exports = {
           embed.addBlankField()
         }
       }
-      // Send an embed
+      // Send an embed that lists the commands and basic usage of the help command
       embed.setColor(cyan)
         .setAuthor(`${message.guild.me.displayName} Help`, message.guild.iconURL)
         .setThumbnail(bot.user.displayAvatarURL)
@@ -39,6 +40,7 @@ module.exports = {
     } else {
       let command = bot.commands.get(args[0].toLowerCase()) ? bot.commands.get(args[0].toLowerCase()).config : bot.commands.get(bot.aliases.get(args[0].toLowerCase())).config
 
+      // Send an embed that gives details on specific command
       embed
         .setColor(cyan)
         .setAuthor(`${message.guild.me.displayName} Help`, message.guild.iconURL)
