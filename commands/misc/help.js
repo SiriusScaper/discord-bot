@@ -8,18 +8,18 @@ module.exports = {
     description: 'Use !help to request a list of commands or !help <command> to get information on each command.',
     usage: '!help or !help <command>',
     category: 'misc',
-    authorized: "Members",
-    aliases: ['h', 'commands'],
+    authorized: 'Members',
+    aliases: ['h', 'commands']
   },
   run: async (bot, message, args) => {
     let arr = []
-    let cmdtypes = ["moderation", "misc"]
+    let cmdtypes = ['moderation', 'misc']
     let embed = new RichEmbed()
 
     // Check for required prefix and command name then compare what is given to a list of commands by the category/folder and command files
     if (!args[0]) {
       for (let i = 0; i < cmdtypes.length; i++) {
-        arr.push(bot.commands.filter(c => c.config.category == cmdtypes[i].toLowerCase()).map(c => `\`${c.config.name}\``).join(" "))
+        arr.push(bot.commands.filter(c => c.config.category === cmdtypes[i].toLowerCase()).map(c => `\`${c.config.name}\``).join(' '))
         try {
           embed.addField(cmdtypes[i], arr[i])
         } catch (e) {
@@ -36,7 +36,6 @@ module.exports = {
         .setFooter(`FtL Bot`, `${bot.user.displayAvatarURL}`)
 
       message.channel.send(embed)
-
     } else {
       let command = bot.commands.get(args[0].toLowerCase()) ? bot.commands.get(args[0].toLowerCase()).config : bot.commands.get(bot.aliases.get(args[0].toLowerCase())).config
 
@@ -47,10 +46,10 @@ module.exports = {
         .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
         .setDescription(`The bot prefix is: ${prefix} \n\n**Command:** ${command.name}
-        **Description:** ${command.description || "No Description"}
-        **Usage:** ${command.usage || "No uasage"}
-        **Authorized:** ${command.authorized || "Members"}
-        **Aliases:** ${command.aliases ? command.aliases.join(', ') : "None"}`)
+        **Description:** ${command.description || 'No Description'}
+        **Usage:** ${command.usage || 'No uasage'}
+        **Authorized:** ${command.authorized || 'Members'}
+        **Aliases:** ${command.aliases ? command.aliases.join(', ') : 'None'}`)
         .setFooter(`FtL Bot`, `${bot.user.displayAvatarURL}`)
 
       message.channel.send(embed)
