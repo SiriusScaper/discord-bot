@@ -25,3 +25,4 @@ features.md
 .nfs*
 
 # End of https://www.gitignore.io/api/linux
+.vscode/launch.json

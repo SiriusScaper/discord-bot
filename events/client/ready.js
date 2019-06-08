@@ -3,7 +3,6 @@
 module.exports = bot => {
   // Confirmation that the bot is running
   console.log(`Logged in as ${bot.user.tag}!`)
-  //  bot.user.setActivity("Test", { type: "LISTENING" })
 
   let status = [
     `${bot.guilds.size}!`,
